@@ -1,4 +1,4 @@
-# CPTo Naming Convention
+   # CPTo Naming Convention
 
 A proven standard for variable naming developed over 30 years by Richard S. Olsen, PhD PE.
 
