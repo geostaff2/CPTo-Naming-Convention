@@ -160,6 +160,8 @@ If you create examples in other languages or have improvements:
 
 Refer to the main [README.md](../README.md) and [QUICK_REFERENCE.md](../QUICK_REFERENCE.md) for detailed documentation.
 
+Have questions or want to discuss these examples? [Join the Discussion](https://github.com/geostaff2/CPTo-Naming-Convention/discussions) to connect with the community!
+
 ---
 
 **Happy Coding with CPTo!** 🚀

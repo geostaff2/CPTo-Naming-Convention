@@ -133,6 +133,22 @@ See the `examples/` directory for practical demonstrations in various languages.
 | `Name_8aaType(,)` | 2D Array | `Grid_8aaInt(,)` |
 | `Name_8oClass` | Object | `Car_8oCar` |
 
+## Discussion & Community
+
+Join the conversation about CPTo naming convention! We'd love to hear your thoughts, questions, and experiences.
+
+**[💬 Join the Discussion](https://github.com/geostaff2/CPTo-Naming-Convention/discussions)**
+
+Share your:
+- Questions about implementing CPTo
+- Success stories and use cases
+- Ideas for improvements
+- Language-specific tips and tricks
+
+You can also:
+- 🐛 [Report issues](https://github.com/geostaff2/CPTo-Naming-Convention/issues) for bugs or problems
+- 💡 [Suggest features](https://github.com/geostaff2/CPTo-Naming-Convention/issues/new) to enhance the convention
+
 ## Contributing
 
 Feedback and contributions are welcome! Please feel free to submit issues or pull requests with:
