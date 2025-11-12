@@ -1,0 +1,19 @@
+# Compiled binaries
+examples/cpp_example
+examples/*.exe
+examples/*.out
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C# / .NET
+*.dll
+*.pdb
+bin/
+obj/
+
+# Backup files
+*.backup
+*~
