@@ -10,7 +10,7 @@ The CPTo naming convention, created by Richard S. Olsen, PhD PE, is a method for
 
 ## Core Concept
 
-Variable type and scope are defined at the end of all variable names, starting with an underscore `_`, then the symbol `8` to represent linkage (like physical chain links), and finally very specific codes. This standard defines the variable type and its programming level scope - where it originated, its purpose, and potentially where it is going.  To repeat the "8" ia to represent a Chain-linkage symbol.
+Variable type and scope are defined at the end of all variable names, starting with an underscore `_`, then the symbol `8` to represent linkage (like physical chain links), and finally very specific codes. This standard defines the variable type and its programming level scope - where it originated, its purpose, and potentially where it is going.  To repeat the "8" is to represent a Chain-linkage symbol - linking the name to the type/scope/insight.
 
 This 30-year convention has been slowly crafted and modified. It was developed so the programmer can quickly see type and scope while reading code.  The key is that the programmer and reviewers can see the scope of ANY variable.  Scope is defined as where did it come from (i.e. local, I, M, G, S), where it's going (i.e. referenced, R), and maybe that it will changed elsewhere (i.e. functioned, F).  
 
