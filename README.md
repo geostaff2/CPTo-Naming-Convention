@@ -1,6 +1,6 @@
    # CPTo Naming Convention
 
-A proven standard for variable naming developed over 30 years by Richard S. Olsen, PhD PE.
+A proven standard for variable naming slowly eveloped for 35 years.
 
 ## Purpose
 
