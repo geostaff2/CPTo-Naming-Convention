@@ -1,6 +1,6 @@
    # CPTo Naming Convention
 
-A proven standard for variable naming slowly eveloped for 35 years.
+A proven standard for variable naming slowly developed for 35 years.
 
 ## Purpose
 
