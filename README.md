@@ -26,7 +26,7 @@ The syntax for names using the CPTo convention generally follows:
 
 1. **BaseName**: A clear, descriptive name that represents the purpose of the variable (e.g., `Cylinder`, `Car`, `Temperature`)
 
-2. **`_8` Separator**: This unique symbol symbolizes a chain-link connection to clarify type/scope
+2. **`_8` Separator**: This unique symbol symbolizes a physical like chain-link connection to clarify type/scope
 
 3. **DataType**: Encodes meaningful type information:
    - `int` = Integer
@@ -47,15 +47,17 @@ The syntax for names using the CPTo convention generally follows:
 
 4. **ScopeIndicator** (optional but recommended):
    - *(none)* = Local variable
-   - `I` = Input parameter (passed into a function/procedure)
-   - `R` = Reference parameter (ByRef in VB.NET, reference in C++)
-   - `F` = From elsewhere (passed from another scope)
+   - `I` = Input parameter (passed Into a function/procedure)
+   - `R` = Reference parameter (Reference in C++, ByRef in VB.NET)
+   - `F` = Defined From elsewhere (passed From another scope)
    - `M` = Module level (class/module scope)
    - `G` = Global level (application-wide scope)
 
 5. **AdditionalNotes** (optional):
-   - `Fun` = Function return value
-   - Units like `_8km`, `_8sec` for secondary information
+   - `Fun` = Function return value, e.g. TopSpeed_8sngF = CarSpeed_8FunSng
+   - Units like `_km`, `_sec` for secondary information  e.g. CarSpeed_8sng_mph
+   - more defined information such as 0 based or 1 based number,  e.g. LeftWall_8int_0Based
+   - 
 
 ## Examples
 
@@ -92,19 +94,21 @@ The syntax for names using the CPTo convention generally follows:
 - `EnginePower_8sngFun` - A function returning a single precision value
 
 ### Additional Information
-- `Traveled_8km_8sng` - A single variable with units (kilometers)
+- `Traveled_8sng_km` - A single variable with units (kilometers)
 - `Car_8colorG` - A color variable defined at global level
-- `CatAndDog_8bitmapM` - A bitmap defined at module level
+- `CatAndDog_8bitmapM` - A C# bitmap defined at module level
+- `CatAndDog_8graphicM_bitmapM` - A C# graphic module from a BitMap Module
+- `Public struct FordCarA_8sCars`  e.g. from public struct s8___Cars { public int x; public int y; } (note the 3 "_")
 
 And the list goes on and on!
 
 ## Language Support
 
 The CPTo naming convention works seamlessly across multiple programming languages:
+- C#
 - Python
 - VB.NET
 - C++
-- C#
 - Java
 - JavaScript
 - And many more!
