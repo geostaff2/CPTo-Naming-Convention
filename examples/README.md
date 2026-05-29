@@ -55,6 +55,14 @@ dotnet build
 dotnet run
 ```
 
+### VB.NET Secure Authentication Skeleton (`vbnet_secure_auth_example.vb`)
+Demonstrates a high-security authentication flow in VB.NET including:
+- Browser-based startup login (OIDC/OAuth2 + PKCE placeholder)
+- Short-lived token usage and TLS 1.2+/1.3 enforcement
+- Server-side session validation before protected operations
+- Periodic in-session re-verification with step-up MFA placeholder
+- Fail-closed behavior when session becomes invalid
+
 ### JavaScript (`javascript_example.js`)
 Demonstrates CPTo convention in JavaScript including:
 - Global and module-level variables

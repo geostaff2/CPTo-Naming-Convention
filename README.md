@@ -115,6 +115,13 @@ The CPTo naming convention works seamlessly across multiple programming language
 
 See the `examples/` directory for practical demonstrations in various languages.
 
+## Security Procedure Example (VB.NET)
+
+If you are building a high-security VB.NET desktop app with mandatory login and in-session re-verification, use:
+
+- `/tmp/workspace/geostaff2/CPTo-Naming-Convention/SECURE_AUTH_PROCEDURE_VBNET.md` - implementation procedure and rollout checklist
+- `/tmp/workspace/geostaff2/CPTo-Naming-Convention/examples/vbnet_secure_auth_example.vb` - VB.NET skeleton showing startup login, server session validation, and periodic re-verification flow
+
 ## Benefits
 
 - **Instant Type Recognition**: Know the data type at a glance
