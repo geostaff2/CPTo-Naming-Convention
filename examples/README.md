@@ -71,6 +71,21 @@ Demonstrates CPTo convention in JavaScript including:
 node javascript_example.js
 ```
 
+### CAD Menu Submission (`cad_menu_submission_example.js`)
+Demonstrates a CAD-oriented menu flow including:
+- Single Apply/Submit entry point across tools
+- Unified command payload creation from menu state
+- Validation for required fields, allowed ranges, and collisions
+- Centralized command handler for execution
+- Inline menu error feedback and success feedback
+- Preview-before-submit behavior for geometry changes
+- Canvas refresh plus undo/redo history logging
+
+**Run it:**
+```bash
+node cad_menu_submission_example.js
+```
+
 ### C# (`csharp_example.cs`)
 Demonstrates CPTo convention in C# including:
 - Static (global) and instance variables
