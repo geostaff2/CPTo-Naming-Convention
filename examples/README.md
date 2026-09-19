@@ -42,6 +42,8 @@ Demonstrates CPTo convention in VB.NET including:
 - Structure definitions with `s8___` prefix
 - Lists and collections
 - UI element naming conventions
+- Bitmap generation for a `PictureBox` with nested horizontal/vertical loops
+- Sine-based pixel filling for a bitmap of a specific size
 
 **Compile and run (with .NET Framework or Mono):**
 ```bash

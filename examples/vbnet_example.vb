@@ -10,6 +10,8 @@
 
 Imports System
 Imports System.Collections.Generic
+Imports System.Drawing
+Imports System.Windows.Forms
 
 Module CPToDemo
     ' Global-level variables (G suffix)
@@ -97,6 +99,66 @@ Module CPToDemo
             Return Count_8intFun
         End Function
     End Class
+    
+    '**********************************************************************
+    ' Build a bitmap with nested X/Y loops and sine-based pixel values
+    ' This is useful for filling a PictureBox on a WinForms page.
+    '**********************************************************************
+    Public Function CreateWaveBitmap(ByVal Width_8intI As Integer,
+                                     ByVal Height_8intI As Integer,
+                                     ByVal FrequencyX_8dblI As Double,
+                                     ByVal FrequencyY_8dblI As Double,
+                                     ByVal Amplitude_8dblI As Double) As Bitmap
+        If Width_8intI <= 0 Then
+            Throw New ArgumentOutOfRangeException(NameOf(Width_8intI), "Width must be greater than zero.")
+        End If
+        
+        If Height_8intI <= 0 Then
+            Throw New ArgumentOutOfRangeException(NameOf(Height_8intI), "Height must be greater than zero.")
+        End If
+        
+        Dim CanvasImage_8bitmap As New Bitmap(Width_8intI, Height_8intI)
+        
+        For Y_8int As Integer = 0 To Height_8intI - 1
+            For X_8int As Integer = 0 To Width_8intI - 1
+                Dim NormalizedX_8dbl As Double = CDbl(X_8int) / Math.Max(Width_8intI - 1, 1)
+                Dim NormalizedY_8dbl As Double = CDbl(Y_8int) / Math.Max(Height_8intI - 1, 1)
+                
+                Dim HorizontalWave_8dbl As Double = Math.Sin(NormalizedX_8dbl * FrequencyX_8dblI * Math.PI * 2.0)
+                Dim VerticalWave_8dbl As Double = Math.Sin(NormalizedY_8dbl * FrequencyY_8dblI * Math.PI * 2.0)
+                Dim WaveValue_8dbl As Double = (HorizontalWave_8dbl + VerticalWave_8dbl) * 0.5
+                
+                Dim GrayLevel_8int As Integer = CInt(Math.Max(0.0, Math.Min(255.0, 127.5 + (WaveValue_8dbl * Amplitude_8dblI))))
+                Dim PixelColor_8color As Color = Color.FromArgb(GrayLevel_8int, 64, 255 - GrayLevel_8int)
+                
+                CanvasImage_8bitmap.SetPixel(X_8int, Y_8int, PixelColor_8color)
+            Next
+        Next
+        
+        Dim CanvasImage_8bitmapFun As Bitmap = CanvasImage_8bitmap
+        Return CanvasImage_8bitmapFun
+    End Function
+    
+    '**********************************************************************
+    ' Generate a bitmap of a specific size and place it into a PictureBox
+    '**********************************************************************
+    Public Sub LoadWaveIntoPictureBox(ByVal Canvas_8picI As PictureBox,
+                                      ByVal Width_8intI As Integer,
+                                      ByVal Height_8intI As Integer,
+                                      ByVal FrequencyX_8dblI As Double,
+                                      ByVal FrequencyY_8dblI As Double,
+                                      ByVal Amplitude_8dblI As Double)
+        Dim CanvasImage_8bitmap As Bitmap = CreateWaveBitmap(Width_8intI, Height_8intI, FrequencyX_8dblI, FrequencyY_8dblI, Amplitude_8dblI)
+        
+        If Canvas_8picI.Image IsNot Nothing Then
+            Canvas_8picI.Image.Dispose()
+        End If
+        
+        Canvas_8picI.Width = Width_8intI
+        Canvas_8picI.Height = Height_8intI
+        Canvas_8picI.SizeMode = PictureBoxSizeMode.Normal
+        Canvas_8picI.Image = CanvasImage_8bitmap
+    End Sub
     
     '**********************************************************************
     ' Demonstrate array operations with CPTo convention
@@ -224,6 +286,25 @@ Module CPToDemo
     End Sub
     
     '**********************************************************************
+    ' Demonstrate bitmap generation for WinForms PictureBox use
+    '**********************************************************************
+    Sub DemonstrateBitmapPattern()
+        Console.WriteLine("Bitmap / PictureBox Operations:")
+        
+        Dim BitmapWidth_8int As Integer = 320
+        Dim BitmapHeight_8int As Integer = 180
+        Dim FrequencyX_8dbl As Double = 3.0
+        Dim FrequencyY_8dbl As Double = 6.0
+        Dim Amplitude_8dbl As Double = 120.0
+        
+        Dim CanvasImage_8bitmap As Bitmap = CreateWaveBitmap(BitmapWidth_8int, BitmapHeight_8int, FrequencyX_8dbl, FrequencyY_8dbl, Amplitude_8dbl)
+        
+        Console.WriteLine("  Bitmap size: " & CanvasImage_8bitmap.Width.ToString() & " x " & CanvasImage_8bitmap.Height.ToString())
+        Console.WriteLine("  Example WinForms usage: LoadWaveIntoPictureBox(Canvas_8pic, 320, 180, 3.0, 6.0, 120.0)")
+        CanvasImage_8bitmap.Dispose()
+    End Sub
+    
+    '**********************************************************************
     ' Main entry point
     '**********************************************************************
     Sub Main()
@@ -271,8 +352,13 @@ Module CPToDemo
         DemonstrateLists()
         Console.WriteLine()
         
-        ' 7. Global Variables
-        Console.WriteLine("7. Global Variables:")
+        ' 7. Bitmap / PictureBox
+        Console.WriteLine("7. ")
+        DemonstrateBitmapPattern()
+        Console.WriteLine()
+        
+        ' 8. Global Variables
+        Console.WriteLine("8. Global Variables:")
         Console.WriteLine("  Application: " & AppName_8strG)
         Console.WriteLine("  Version: " & Version_8dblG.ToString("F1"))
         Console.WriteLine("  Max Users: " & MaxUsers_8intG.ToString())
